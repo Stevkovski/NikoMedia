@@ -1,0 +1,29 @@
+﻿@using DataAccess.Entities;
+@model Configuration
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Register Configuration</h2>
+            <hr>
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="Client" class="form-label">Client:</label>
+            @Html.DropDownListFor(m => m.Client.Id, ViewBag.ClientList as SelectList, "Select a Client", new { @class = "form-control" })
+            <span asp-validation-for="Client" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Template" class="form-label">Template:</label>
+            @Html.DropDownListFor(m => m.Template.Id, ViewBag.TemplateList as SelectList, "Select a Template", new { @class = "form-control" })
+            <span asp-validation-for="Template.Id" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ConfigurationName" class="form-label">Configuration Name:</label>
+            <input asp-for="ConfigurationName" class="form-control" />
+            <span asp-validation-for="ConfigurationName" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Register</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to Home</a>
+    </div>
+</form>

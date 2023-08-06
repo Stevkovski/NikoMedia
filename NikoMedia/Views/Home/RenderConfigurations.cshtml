@@ -1,0 +1,33 @@
+﻿@model RenderConfigurationsViewModel
+
+<div class="container mt-5">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Register Configuration</h2>
+            <hr>
+        </div>
+        <form method="post" asp-action="SendEmail" asp-controller="Home">
+            <div class="mb-3">
+                <label asp-for="SelectedConfigurationId" class="form-label">Configuration:</label>
+                <select name="SelectedConfigurationId" class="form-select">
+                    <option value="">Select a Configuration</option>
+                    @foreach (var config in Model.Configurations)
+                    {
+                        <option value="@config.Id">@config.ConfigurationName</option>
+                    }
+                </select>
+                <span asp-validation-for="SelectedConfigurationId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SendTo" class="form-label">Send To:</label>
+                <input asp-for="SendTo" class="form-control" />
+                <span asp-validation-for="SendTo" class="text-danger"></span>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary" style="width:150px">Send Email</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to Home</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@model string
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Send XML Email</h2>
+            <hr>
+        </div>
+        <div class="mb-3">
+            <label for="xmlBody" class="form-label">Enter XML:</label>
+            <textarea id="xmlBody" name="xmlBody" class="form-control" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Send Email</button>
+    </div>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="border p-3 mt-4">
+        <p>@ViewBag.Message</p>
+    </div>
+}
